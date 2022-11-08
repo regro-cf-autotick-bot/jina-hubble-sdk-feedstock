@@ -1,5 +1,5 @@
 {% set name = "jina-hubble-sdk" %}
-{% set version = "0.6.5" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jina-hubble-sdk-{{ version }}.tar.gz
-  sha256: 870bf6cef9cbca7b1b0e06e30b5f7aef55a62b18e00ef99c7f7ff51e2318cc0c
+  sha256: 10935c87f1913bf6c9a716d82d72686613a40f74ce339306bcaab274efa6c5e7
 
 build:
   noarch: python
