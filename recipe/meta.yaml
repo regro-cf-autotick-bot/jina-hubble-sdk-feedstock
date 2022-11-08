@@ -1,5 +1,5 @@
 {% set name = "jina-hubble-sdk" %}
-{% set version = "0.9.2" %}
+{% set version = "0.10.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jina-hubble-sdk-{{ version }}.tar.gz
-  sha256: 413194d1794568aea002d61588922a9b0dcf6dd2d2b9761b015f4e2c09b226b6
+  sha256: 9a655ab5ddbe7878a6b9849ac5b820dbf07ac964344ea6c682a3b953e6bfcf14
 
 build:
+  entry_points:
+    - jina-auth=hubble.__main__:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
@@ -31,6 +33,7 @@ test:
     - hubble
   commands:
     - pip check
+    - jina-auth --help
   requires:
     - pip
 
