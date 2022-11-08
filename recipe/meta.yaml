@@ -1,5 +1,5 @@
 {% set name = "jina-hubble-sdk" %}
-{% set version = "0.18.1" %}
+{% set version = "0.19.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jina-hubble-sdk-{{ version }}.tar.gz
-  sha256: a2b85a719b0063f19dd9965043ce68a819357c38c6fb24947e6b720f18638798
+  sha256: 786ccc135325e4b5564a8185e9df2418d12aa69441812dd7672cb975050d5fe0
 
 build:
   entry_points:
     - jina-auth=hubble.__main__:main
+    - jina-hub=hubble.executor.__main__:main
     - docker-credential-jina-hubble=hubble.dockerauth:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
@@ -29,6 +30,11 @@ requirements:
     - aiohttp
     - rich
     - importlib-metadata
+    - filelock
+    - pathspec
+    - cryptography
+    - docker-py
+    - pyyaml
 
 test:
   imports:
@@ -36,6 +42,7 @@ test:
   commands:
     - pip check
     - jina-auth --help
+    - jina-hub --help
     - docker-credential-jina-hubble --help
   requires:
     - pip
