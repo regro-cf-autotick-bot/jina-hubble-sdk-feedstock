@@ -1,11 +1,11 @@
-About jina-hubble-sdk
-=====================
+About jina-hubble-sdk-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jina-hubble-sdk-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jina-ai/jina-hubble-sdk/
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jina-hubble-sdk-feedstock/blob/main/LICENSE.txt)
 
 Summary: SDK for Hubble API at Jina AI.
 
