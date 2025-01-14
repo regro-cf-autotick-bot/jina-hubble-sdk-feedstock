@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jina-hubble-sdk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jina-hubble-sdk-{{ version }}.tar.gz
   sha256: 9021417794a6d3cf3fad8a880cf668a3a986b9d53d5be5fa391aae1767a5b9b0
 
 build:
@@ -16,16 +16,16 @@ build:
     - docker-credential-jina-hubble=hubble.dockerauth:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools >=18.0
     - wheel
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - requests
     - aiohttp
     - rich
@@ -46,6 +46,7 @@ test:
     - docker-credential-jina-hubble --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/jina-ai/jina-hubble-sdk/
